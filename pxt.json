@@ -1,5 +1,5 @@
 {
-    "name": "WS2813",
+    "name": "WS2813-3led",
     "description": "",
     "dependencies": {
         "core": "*",
