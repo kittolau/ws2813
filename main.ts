@@ -1,34 +1,8 @@
 input.onButtonPressed(Button.A, function () {
-    if (ledMode == 0) {
-        Led4.showColor(neopixel.colors(NeoPixelColors.White))
-        basic.showString("W")
-        ledMode = 1
-    } else if (ledMode == 1) {
-        Led4.showColor(neopixel.colors(NeoPixelColors.Red))
-        basic.showString("R")
-        ledMode = 2
-    } else if (ledMode == 2) {
-        Led4.showColor(neopixel.colors(NeoPixelColors.Green))
-        basic.showString("G")
-        ledMode = 3
-    } else if (ledMode == 3) {
-        Led4.showColor(neopixel.colors(NeoPixelColors.Blue))
-        basic.showString("B")
-        ledMode = 4
-    } else if (ledMode == 4) {
-        Led4.showRainbow(1, 360)
-        basic.showIcon(IconNames.Heart)
-        ledMode = 0
-    } else if (ledMode == 4) {
-        for (let index = 0; index <= 4; index++) {
-            Led4.showRainbow(1, 2)
-        }
-    } else {
-    	
-    }
-    basic.clearScreen()
-})
-input.onButtonPressed(Button.AB, function () {
+    Led1.clear()
+    Led2.clear()
+    Led3.clear()
+    Led4.clear()
     for (let index = 0; index <= 900; index++) {
         Led1.setPixelColor(index, neopixel.colors(NeoPixelColors.Green))
         if (index >= 100) {
@@ -41,11 +15,61 @@ input.onButtonPressed(Button.AB, function () {
             Led4.setPixelColor(index - 300, neopixel.colors(NeoPixelColors.Green))
         }
         Led4.show()
+        Led3.show()
+        Led2.show()
+        Led1.show()
         basic.pause(0.01)
     }
 })
-input.onButtonPressed(Button.B, function () {
+input.onButtonPressed(Button.AB, function () {
     control.reset()
+})
+input.onButtonPressed(Button.B, function () {
+    Led4.clear()
+    Led3.clear()
+    Led2.clear()
+    Led1.clear()
+    if (ledMode == 0) {
+        Led1.showColor(neopixel.colors(NeoPixelColors.White))
+        Led2.showColor(neopixel.colors(NeoPixelColors.White))
+        Led3.showColor(neopixel.colors(NeoPixelColors.White))
+        Led4.showColor(neopixel.colors(NeoPixelColors.White))
+        basic.showString("W")
+        ledMode = 1
+    } else if (ledMode == 1) {
+        Led1.showColor(neopixel.colors(NeoPixelColors.Red))
+        Led2.showColor(neopixel.colors(NeoPixelColors.Red))
+        Led3.showColor(neopixel.colors(NeoPixelColors.Red))
+        Led4.showColor(neopixel.colors(NeoPixelColors.Red))
+        basic.showString("R")
+        ledMode = 2
+    } else if (ledMode == 2) {
+        Led1.showColor(neopixel.colors(NeoPixelColors.Green))
+        Led2.showColor(neopixel.colors(NeoPixelColors.Green))
+        Led3.showColor(neopixel.colors(NeoPixelColors.Green))
+        Led4.showColor(neopixel.colors(NeoPixelColors.Green))
+        basic.showString("G")
+        ledMode = 3
+    } else if (ledMode == 3) {
+        Led1.showColor(neopixel.colors(NeoPixelColors.Blue))
+        Led2.showColor(neopixel.colors(NeoPixelColors.Blue))
+        Led3.showColor(neopixel.colors(NeoPixelColors.Blue))
+        Led4.showColor(neopixel.colors(NeoPixelColors.Blue))
+        basic.showString("B")
+        ledMode = 4
+    } else if (ledMode == 4) {
+        Led1.showRainbow(1, 360)
+        Led2.showRainbow(1, 360)
+        Led3.showRainbow(1, 360)
+        Led4.showRainbow(1, 360)
+        basic.showIcon(IconNames.Heart)
+        ledMode = 0
+    } else if (false) {
+    	
+    } else {
+    	
+    }
+    basic.clearScreen()
 })
 let Led4: neopixel.Strip = null
 let Led3: neopixel.Strip = null
